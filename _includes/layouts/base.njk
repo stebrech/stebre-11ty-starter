@@ -51,6 +51,11 @@
 				{%- endfor %}
 				</ul>
 			</nav>
+			This page is also available in:
+			{% for link in page.url | locale_links %}
+			{%- if not loop.first %},{% endif %}
+			<a href="{{link.url}}" lang="{{link.lang}}" hreflang="{{link.lang}}">{{link.label}}</a>
+			{% endfor %}
 		</header>
 
 		<main id="skip">

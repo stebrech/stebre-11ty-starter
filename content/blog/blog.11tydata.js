@@ -1,6 +1,5 @@
 export default {
-	tags: [
-		"posts"
-	],
-	"layout": "layouts/post.njk",
+	tags: ["posts"],
+	lang: "en",
+	layout: "layouts/post.njk",
 };
