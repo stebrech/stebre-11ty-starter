@@ -1,6 +1,6 @@
-# eleventy-base-blog v9
+# stebre-11ty-starter
 
-A starter repository showing how to build a blog with the [Eleventy](https://www.11ty.dev/) site generator (using the [v3.0 release](https://github.com/11ty/eleventy/releases/tag/v3.0.0)).
+This 11ty starter is build upon [eleventy-base-blog v9](https://github.com/11ty/eleventy-base-blog/releases/tag/v9.0.0).
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ cd my-blog-name
 2. Clone this Repository
 
 ```
-git clone https://github.com/11ty/eleventy-base-blog.git .
+git clone https://github.com/stebre/stebre-11ty-starter.git .
 ```
 
 _Optional:_ Review `eleventy.config.js` and `_data/metadata.js` to configure the site’s options and data.
