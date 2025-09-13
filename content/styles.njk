@@ -1,0 +1,85 @@
+---js
+const eleventyNavigation = {
+	key: "Styles",
+	order: 3
+};
+---
+<h1>Styles</h1>
+
+<h2>Colors</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem; margin-top: 1rem; width: 100%">
+	{% for i in range(11) %}
+		<div style="border: 1px solid var(--color-gray-3); border-radius: 0.5rem; padding: 0.5rem;">
+			<div style="background: var(--color-gray-{{ i }}); border-radius: 0.5rem; color: black; width:100%; height: 4rem;"></div>
+			<div style="margin-top: 1rem;">--color-gray-{{i}}</div>
+		</div>
+	{% endfor %}
+	{% set colorVars = [
+		"--color-primary",
+		"--color-primary-bg",
+		"--color-secondary",
+		"--color-secondary-bg"
+	] %}
+	{% for color in colorVars %}
+		<div style="border: 1px solid var(--color-gray-3); border-radius: 0.5rem; padding: 0.5rem;">
+			<div style="background: var({{ color }}); border-radius: 0.5rem; color: black; width:100%; height: 4rem;"></div>
+			<div style="margin-top: 1rem;">{{color}}</div>
+		</div>
+	{% endfor %}
+
+</div>
+<div style="display: flex; flex-wrap: wrap; margin-top: 2rem; gap: 2rem; width: 100%">
+
+</div>
+
+<h2>Links</h2>
+
+	<p><a href="#">Default link</a></p>
+	<p><a href="#" class="cta one">Call to action link (<code>.cta.one</code>)</a></p>
+	<p><a href="#" class="cta two">Call to action link (<code>.cta.two</code>)</a></p>
+
+
+	<h2>Form Elements</h2>
+	<form style="display:flex; flex-direction:column;align-items:flex-start;">
+
+		<label for="textInput">Label for text input</label>
+		<input type="text" id="textInput" placeholder="Enter text">
+
+		<label>
+			Select
+			<select>
+				<option>Option 1</option>
+				<option>Option 2</option>
+			</select>
+		</label>
+		<label>
+			Checkbox
+			<input type="checkbox"> Check me
+		</label>
+		<label>
+			Radio
+			<input type="radio" name="radioTest"> Choose me
+		</label>
+		<button type="submit">Submit</button>
+	</form>
+
+	<h2>Typography</h2>
+	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+	<p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+	<h3>Heading 3</h3>
+	<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+	<h4>Heading 4</h4>
+	<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+	<h5>Heading 5</h5>
+	<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+	<h6>Heading 6</h6>
+	<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+	<blockquote>This is a blockquote example.</blockquote>
+	<ul>
+		<li>Unordered list item</li>
+		<li>Another item</li>
+	</ul>
+	<ol>
+		<li>Ordered list item</li>
+		<li>Another item</li>
+	</ol>

@@ -1,0 +1,115 @@
+#primary-nav-btn {
+	border: 1px solid transparent;
+	display: none;
+	z-index: 9;
+}
+
+#primary-nav.hide-on-mobile {
+	display: block;
+}
+
+#primary-nav-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1rem;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#primary-nav-list .nav-item {}
+
+#primary-nav-list a {}
+
+#primary-nav-list a[aria-current="page"] {
+	font-weight: var(--font-weight-bold);
+}
+
+
+/* mobile */
+/* JavaScript enabled */
+
+@media screen and (max-width: 80rem) and (scripting: enabled) {
+
+	#primary-nav-btn {
+		display: block;
+	}
+
+	#primary-nav-btn[aria-expanded="true"] {
+		border-color: var(--color-gray-10);
+	}
+
+	#primary-nav-btn[aria-expanded="true"]+#primary-nav {
+		transform: translateX(0);
+	}
+
+	#primary-nav-btn[aria-expanded="true"]+.hidden-on-mobile {
+		visibility: visible;
+	}
+
+	#primary-nav-btn[aria-expanded="false"]+#primary-nav {
+		transform: translateX(100vw);
+	}
+
+	#primary-nav-btn[aria-expanded="false"]+.hidden-on-mobile {
+		display: hidden;
+	}
+
+	#primary-nav {
+		background-color: var(--color-primary-bg);
+		height: 100%;
+		left: 0;
+		height: 100vh;
+		position: absolute;
+		transition: transform 400ms ease-in-out;
+		top: 0;
+		width: 100vw;
+		z-index: 1;
+		overflow: hidden;
+	}
+
+	#primary-nav-list {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		height: calc(100vh - 5rem);
+		font-size: var(--font-size-big);
+		gap: 0;
+		margin: 4rem 1rem 1rem;
+	}
+
+	#primary-nav-list .nav-item {
+		padding: 1rem;
+	}
+
+	#primary-nav-list a {
+		color: var(--color-gray-10);
+	}
+}
+
+
+/* mobile */
+/* JavaScript enabled */
+/* for users who prefer reduced motion */
+
+@media screen and (max-width: 80rem) and (scripting: enabled) and (prefers-reduced-motion) {
+
+	#primary-nav-btn[aria-expanded="true"]+#primary-nav {
+		opacity: 1;
+	}
+
+	#primary-nav-btn[aria-expanded="false"]+#primary-nav {
+		opacity: 0;
+	}
+
+	#primary-nav {
+		transform: none;
+		transition: opacity 200ms ease-in-out;
+	}
+}
+
+
+/* no touch screen */
+
+@media screen and (hover: hover) and (pointer: fine) {}

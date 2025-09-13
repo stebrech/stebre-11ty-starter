@@ -1,0 +1,39 @@
+.cta {
+	--cta-bg: var(--color-primary-bg);
+	--cta-color: var(--color-gray-10);
+
+	font-size: var(--font-size-normal);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
+	padding: var(--padding-interactive-normal);
+}
+
+.cta.one {
+	background-color: var(--cta-bg);
+	border: 2px solid var(--cta-color);
+	color: var(--cta-color);
+}
+
+.cta.two {
+	background-color: transparent;
+	border: 2px solid var(--color-primary);
+	color: var(--color-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+	.cta.one:focus,
+	.cta.one:hover {
+		background-color: transparent;
+		border: 2px solid var(--color-gray-8);
+		color: var(--color-gray-8);
+	}
+
+	.cta.two:focus,
+	.cta.two:hover {
+		background-color: var(--cta-bg);
+		border-color: var(--cta-color);
+		color: var(--cta-color);
+	}
+}

@@ -1,0 +1,447 @@
+/*
+ Variables
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono,
+		Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New,
+		Courier, monospace;
+
+	/* colors */
+	--color-gray-hue: 223;
+	--color-gray-sat: 15%;
+
+	--color-gray-0: hsl(var(--color-gray-hue), var(--color-gray-sat), 100%);
+	--color-gray-1: hsl(var(--color-gray-hue), var(--color-gray-sat), 90%);
+	--color-gray-2: hsl(var(--color-gray-hue), var(--color-gray-sat), 80%);
+	--color-gray-3: hsl(var(--color-gray-hue), var(--color-gray-sat), 70%);
+	--color-gray-4: hsl(var(--color-gray-hue), var(--color-gray-sat), 60%);
+	--color-gray-5: hsl(var(--color-gray-hue), var(--color-gray-sat), 50%);
+	--color-gray-6: hsl(var(--color-gray-hue), var(--color-gray-sat), 40%);
+	--color-gray-7: hsl(var(--color-gray-hue), var(--color-gray-sat), 30%);
+	--color-gray-8: hsl(var(--color-gray-hue), var(--color-gray-sat), 20%);
+	--color-gray-9: hsl(var(--color-gray-hue), var(--color-gray-sat), 10%);
+	--color-gray-10: hsl(var(--color-gray-hue), var(--color-gray-sat), 0%);
+
+	--color-primary-hue: 210;
+	--color-primary-sat: 100%;
+	--color-secondary-hue: 50;
+	--color-secondary-sat: 80%;
+
+	--color-primary: hsl(var(--color-primary-hue), var(--color-primary-sat), 30%);
+	--color-primary-bg: hsl(var(--color-primary-hue), var(--color-primary-sat), 80%);
+	--color-secondary: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 30%);
+	--color-secondary-bg: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 80%);
+
+
+	/* font sizes */
+	--font-size-root: 1.125em;
+	/*
+	18px (with 16px as default)
+	Sizes based on the root font size of 18px
+		80rem | 16px = 1280px | 18px = 1440px
+		70rem | 16px = 1120px | 18px = 1260px
+		60rem | 16px =  960px | 18px = 1080px
+		50rem | 16px =  800px | 18px =  900px
+		40rem | 16px =  640px | 18px =  720px
+		30rem | 16px =  480px | 18px =  540px
+		20rem | 16px =  320px | 18px =  360px
+		10rem | 16px =  160px | 18px =  180px
+	*/
+
+	--font-size-small: 0.888;
+	--font-size-normal: 1em;
+	--font-size-big: 1.25em;
+	--font-size-bigger: 1.5em;
+	--font-size-biggest: 2em;
+
+	/* font weight */
+	--font-weight-light: 300;
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+
+	/* line-height */
+	--line-height-root: 1.333;
+	/* 24px (with 16px as default) */
+	--line-height-dense: 1.2;
+
+	/* spacing */
+	--space-normal: 1rem;
+	--space-double: calc(var(--space-normal) * 2);
+
+	/* interactive boxes */
+	--padding-interactive-normal: 1rem 0.75rem;
+	--border-radius-form-elements: 0.5rem;
+
+	/* code related */
+	--syntax-tab-size: 2;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* colors */
+		--color-gray-0: hsl(var(--color-gray-hue), var(--color-gray-sat), 0%);
+		--color-gray-1: hsl(var(--color-gray-hue), var(--color-gray-sat), 10%);
+		--color-gray-2: hsl(var(--color-gray-hue), var(--color-gray-sat), 20%);
+		--color-gray-3: hsl(var(--color-gray-hue), var(--color-gray-sat), 30%);
+		--color-gray-4: hsl(var(--color-gray-hue), var(--color-gray-sat), 40%);
+		--color-gray-5: hsl(var(--color-gray-hue), var(--color-gray-sat), 50%);
+		--color-gray-6: hsl(var(--color-gray-hue), var(--color-gray-sat), 60%);
+		--color-gray-7: hsl(var(--color-gray-hue), var(--color-gray-sat), 70%);
+		--color-gray-8: hsl(var(--color-gray-hue), var(--color-gray-sat), 80%);
+		--color-gray-9: hsl(var(--color-gray-hue), var(--color-gray-sat), 90%);
+		--color-gray-10: hsl(var(--color-gray-hue), var(--color-gray-sat), 100%);
+
+		--color-primary: hsl(var(--color-primary-hue), var(--color-primary-sat), 80%);
+		--color-primary-bg: hsl(var(--color-primary-hue), var(--color-primary-sat), 40%);
+		--color-secondary: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 80%);
+		--color-secondary-bg: hsl(var(--color-secondary-hue), var(--color-secondary-sat), 30%);
+	}
+}
+
+
+/*
+ Layout
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	color: var(--color-gray-9);
+	font-family: var(--font-family);
+	padding: 0;
+	margin: 0 auto;
+}
+
+html {
+	background: var(--color-gray-0);
+	font-size: var(--font-size-root);
+	line-height: var(--line-height-root);
+	overflow-y: scroll;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		background: var(--color-gray-1);
+	}
+}
+
+@media screen and (min-width: 80rem) {
+	body {
+		font-size: 1.1111112em;
+		/* 20px */
+	}
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+#page-layout {
+	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	grid-template-rows: 1fr auto 1fr;
+	grid-template-areas:
+		"header header header"
+		"main-left main main-right"
+		"footer-left footer footer-right";
+	justify-items: left;
+}
+
+@media screen and (min-width: 80rem) {
+	#page-layout {
+		grid-template-columns: 1fr 60rem 1fr;
+	}
+}
+
+/* Header */
+#header {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1rem;
+	grid-area: header;
+	justify-content: space-between;
+	padding: 1rem;
+	width: 100%;
+}
+
+/* Main */
+#main {
+	align-self: center;
+	align-items: flex-start;
+	display: flex;
+	grid-area: main;
+	margin: 1rem;
+}
+
+#main :first-child {
+	margin-top: 0;
+}
+
+/* Footer */
+#footer {
+	grid-area: footer;
+	margin-top: auto;
+	padding: 1rem;
+	z-index: 1;
+}
+
+
+/*
+ Elements
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+/* Paragraph */
+p {
+	margin: var(--space-normal) 0 0 0;
+}
+
+
+/* Headings */
+h1,
+h2 {
+	line-height: var(--line-height-dense);
+}
+
+h1 {
+	font-size: var(--font-size-biggest);
+	font-weight: var(--font-weight-light);
+}
+
+h2 {
+	font-size: var(--font-size-bigger);
+	font-weight: var(--font-weight-bold);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: var(--space-double) 0 0 0;
+}
+
+h1+h2,
+h2+h3,
+h3+h4,
+h4+h5,
+h5+h6 {
+	margin: var(--space-normal) 0 0 0;
+}
+
+h3 {
+	font-size: var(--font-size-big);
+}
+
+h4,
+h5,
+h6 {
+	font-size: var(--font-size-normal);
+}
+
+
+/* Links */
+
+a {
+	color: var(--color-gray-8);
+	display: inline-block;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
+
+:focus {
+	outline-offset: .25rem;
+}
+
+@media (width > 80rem) and (hover: hover) and (pointer: fine) {
+	a:hover {
+		text-decoration: none;
+	}
+}
+
+
+/* Skip link */
+
+#skip-link {
+	border: 1px solid var(--color-gray-8);
+	background: var(--color-gray-1);
+	color: var(--color-gray-8);
+	line-height: normal;
+	padding: var(--padding-interactive-normal);
+	text-decoration: none;
+}
+
+/* Prevent visually-hidden skip link fom pushing content around when focused */
+#skip-link.visually-hidden:focus {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	/* Ensure it is positioned on top of everything else when it is shown */
+	z-index: 999;
+}
+
+
+/* Media */
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+	margin: var(--space-normal) 0 0 0;
+	max-width: 100%;
+}
+
+img[width][height] {
+	height: auto;
+}
+
+img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+}
+
+figure {
+	margin: var(--space-normal) 0 0 0;
+	padding: 0;
+}
+
+figure+img {
+	margin: 0;
+}
+
+figcaption {}
+
+audio {
+	margin-top: 1rem;
+	max-width: 100%;
+}
+
+video,
+iframe {
+	margin: 1rem 0 0 0;
+	width: 100%;
+	height: auto;
+}
+
+iframe {
+	aspect-ratio: 16/9;
+}
+
+
+/* Lists */
+
+li {
+	line-height: 1.5;
+}
+
+
+/* Table */
+
+table {
+	margin: 1em 0;
+}
+
+td,
+th {
+	padding-right: 1em;
+}
+
+
+/* Code */
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+
+pre:not([class*="language-"]) {
+	margin: 0.5em 0;
+	line-height: 1.375;
+	/* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+
+code {
+	word-break: break-all;
+}
+
+
+/* Form */
+
+button {
+	background-color: var(--color-primary-bg);
+	border: none;
+	border-radius: var(--border-radius-form-elements);
+	color: var(--color-gray-10);
+	cursor: pointer;
+	font-size: var(--font-size-normal);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	padding: var(--padding-interactive-normal);
+}
+
+@media screen and (hover: hover) and (pointer: fine) {
+
+	button:focus,
+	button:hover {
+		background-color: var(--color-primary);
+		color: var(--color-gray-0);
+	}
+}
+
+input {
+	border: 0;
+	border-radius: var(--border-radius-form-elements);
+	font-size: var(--font-size-normal);
+	padding: var(--padding-interactive-normal);
+}
+
+input:focus,
+textarea:focus {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+
+.postlist-item>.post-tag {
+	align-self: center;
+}

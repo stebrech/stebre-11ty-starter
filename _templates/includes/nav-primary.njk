@@ -1,0 +1,15 @@
+<style>{% include "css/nav-primary.css" %}</style>
+
+<button id="primary-nav-btn" aria-label="Main menu" aria-expanded="false" aria-controls="primary-nav">
+	Menu
+</button>
+<nav id="primary-nav" class="hide-on-mobile">
+	<ul id="primary-nav-list">
+	{%- for entry in collections.all | eleventyNavigation %}
+		<li class="nav-item">
+			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+			<a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+		</li>
+	{%- endfor %}
+	</ul>
+</nav>

@@ -1,0 +1,42 @@
+.postlist {
+	counter-reset: start-from var(--postlist-index);
+	list-style: none;
+	padding: 0;
+	padding-left: 0;
+}
+
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin: 1rem 0 0 2.5rem;
+}
+
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: left;
+	margin: 0 0.5rem 0 -2.5rem;
+	width: 2rem;
+}
+
+.postlist-date,
+.postlist-item:before {
+	font-size: var(--font-size-small);
+}
+
+.postlist-link {
+	font-size: var(--font-size-bigger);
+	font-weight: var(--font-weigth-bold);
+	flex-basis: calc(100% - 1.5rem);
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+
+.postlist-item-active .postlist-link {
+	font-weight: var(--font-weigth-bold);
+}
