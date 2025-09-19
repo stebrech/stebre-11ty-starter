@@ -265,7 +265,6 @@ h6 {
 
 a {
 	color: var(--color-gray-8);
-	display: inline-block;
 	text-decoration: underline;
 	text-underline-offset: 0.2em;
 }
