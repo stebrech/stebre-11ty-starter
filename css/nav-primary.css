@@ -50,7 +50,6 @@
 
 	#primary-nav-btn[aria-expanded="false"]+#primary-nav {
 		transform: translateX(100vw);
-		width: 0;
 	}
 
 	body:has(#primary-nav-btn[aria-expanded="true"]) {
