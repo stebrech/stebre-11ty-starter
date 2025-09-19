@@ -6,12 +6,12 @@ const listItems = disclosure.querySelectorAll("li a");
 
 function openNavigation() {
 	navButton.setAttribute("aria-expanded", "true");
-	disclosure.classList.remove("hide-on-mobile");
+	disclosure.classList.remove("hidden-on-mobile");
 }
 
 function closeNavigation() {
 	navButton.setAttribute("aria-expanded", "false");
-	disclosure.classList.add("hide-on-mobile");
+	disclosure.classList.add("hidden-on-mobile");
 }
 
 function toggleNavigation() {

@@ -32,6 +32,10 @@
 
 @media screen and (max-width: 80rem) and (scripting: enabled) {
 
+	#header {
+		flex-wrap: nowrap;
+	}
+
 	#primary-nav-btn {
 		display: block;
 	}
@@ -44,16 +48,14 @@
 		transform: translateX(0);
 	}
 
-	#primary-nav-btn[aria-expanded="true"]+.hidden-on-mobile {
-		visibility: visible;
-	}
-
 	#primary-nav-btn[aria-expanded="false"]+#primary-nav {
 		transform: translateX(100vw);
+		width: 0;
 	}
 
-	#primary-nav-btn[aria-expanded="false"]+.hidden-on-mobile {
-		display: hidden;
+	body:has(#primary-nav-btn[aria-expanded="true"]) {
+		overflow-y: hidden;
+		max-height: 100vh;
 	}
 
 	#primary-nav {
@@ -62,7 +64,7 @@
 		left: 0;
 		height: 100vh;
 		position: absolute;
-		transition: transform 400ms ease-in-out;
+		transition: all 400ms ease-in-out;
 		top: 0;
 		width: 100vw;
 		z-index: 1;
@@ -77,6 +79,7 @@
 		font-size: var(--font-size-big);
 		gap: 0;
 		margin: 4rem 1rem 1rem;
+		overflow: scroll;
 	}
 
 	#primary-nav-list .nav-item {
